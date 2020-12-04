@@ -1,33 +1,27 @@
 const form = document.querySelector(".js-form");
 const input = form.querySelector("input");
-const greetings = document.querySelector(".js-greetings");
+const greeting = document.querySelector(".js-greetings");
 
 function saveName(text) {
   localStorage.setItem("currentUser", text);
 }
 
-function handleSubmit(event) {
-  event.preventDefault();
+function handledSubmit(event) {
+  event.preventDefault;
   const currentValue = input.value;
   paintGreeting(currentValue);
   saveName(currentValue);
 }
 
-function handleSubmit(event) {
-  event.preventDefault();
-  const currentValue = input.value;
-  paintGreeting(currentValue);
-}
-
 function askForName() {
   form.classList.add("showing");
-  form.addEventListener("submit", handleSubmit);
+  form.addEventListener("submit", handledSubmit);
 }
 
 function paintGreeting(text) {
   form.classList.remove("showing");
-  greetings.classList.add("showing");
-  greetings.innerText = `Hello ${text}`;
+  greeting.classList.add("showing");
+  greeting.innerText = `Hello${text}`;
 }
 
 function loadName() {
