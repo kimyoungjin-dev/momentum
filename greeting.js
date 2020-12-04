@@ -2,8 +2,21 @@ const form = document.querySelector(".js-form");
 const input = form.querySelector("input");
 const greetings = document.querySelector(".js-greetings");
 
+function saveName(text) {
+  localStorage.setItem("currentUser", text);
+}
+
 function handleSubmit(event) {
   event.preventDefault();
+  const currentValue = input.value;
+  paintGreeting(currentValue);
+  saveName(currentValue);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  const currentValue = input.value;
+  paintGreeting(currentValue);
 }
 
 function askForName() {
