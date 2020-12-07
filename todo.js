@@ -24,7 +24,7 @@ function paintTodo(text) {
   const delbtn = document.createElement("button");
   const newid = todos.length + 1;
   span.innerText = text;
-  delbtn.innerhtml = "x";
+  delbtn.innerText = "❌";
   delbtn.addEventListener("click", deletetodo);
   li.appendChild(span);
   li.appendChild(delbtn);
