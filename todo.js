@@ -22,9 +22,10 @@ function paintTodo(text) {
   const li = document.createElement("li");
   const span = document.createElement("span");
   const delbtn = document.createElement("button");
+
   const newid = todos.length + 1;
+  delbtn.innerText = "v";
   span.innerText = text;
-  delbtn.innerText = "❌";
   delbtn.addEventListener("click", deletetodo);
   li.appendChild(span);
   li.appendChild(delbtn);
