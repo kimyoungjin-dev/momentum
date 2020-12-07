@@ -1,9 +1,10 @@
 const weather = document.querySelector(".js-weather");
 const API_KEY = "d65dac0a0139c95b2362e104cecfd7a6";
+const COORDS = "coords";
 
-function getweather(lat, lng) {
+function getWeather(lat, lng) {
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}`
+    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric`
   )
     .then(function (response) {
       return response.json();
@@ -11,43 +12,40 @@ function getweather(lat, lng) {
     .then(function (json) {
       const temperature = json.main.temp;
       const place = json.name;
-      weather.innerText = `${temperature} @ ${place}`;
+      weather.innerText = `${temperature}@${place}`;
     });
 }
-
 function saveCoords(coordsObj) {
-  localStorage.setItem("coords", JSON.stringify(coordsObj));
+  localStorage.setItem(COORDS, JSON.stringify(coordsObj));
 }
-function handleSuccess(position) {
+
+function handleGeoSucces(position) {
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
   const coordsObj = {
     latitude,
     longitude,
   };
-  saveCoords();
-  getweather(latitude, longitude);
+  saveCoords(coordsObj);
+  getWeather(latitude, longitude);
 }
-
-function handleError() {
-  console.log("Can access geo location");
+function handleGeoError() {
+  console.log("Cant access geo location");
 }
 
 function askForCoords() {
-  navigator.geolocation.getCurrentPosition(handleSuccess, handleError);
+  navigator.geolocation.getCurrentPosition(handleGeoSucces, handleGeoError);
 }
 
 function loadCoords() {
-  const loadedCoords = localStorage.getItem("coords");
+  const loadedCoords = localStorage.getItem("COORDS");
   if (loadedCoords === null) {
     askForCoords();
   } else {
-    const parseCoords = JSON.parse(loadedCoords);
-    console.log(parseCoords);
-    getweather(parseCoords.latitude, parseCoords.longitude);
+    const parsedCoords = JSON.parse(loadedCoords);
+    getWeather(parsedCoords.latitude, parsedCoords.longitude);
   }
 }
-
 function init() {
   loadCoords();
 }
