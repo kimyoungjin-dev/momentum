@@ -6,22 +6,32 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 500px;
+  margin-bottom: -230px;
+  color: white;
+  font-size: 45px;
 }
 
 .greetings {
   display: none;
   text-align: center;
+  font-size: 30px;
+  color: white;
 }
 
-.js-todoform {
-  text-align: center;
+.js-form {
+  display: contents;
+  justify-content: center;
+  align-items: center;
 }
 .js-todoform input {
   border-radius: 18px;
   text-align: center;
   padding: 10px;
-  margin-right: 1000px;
   border: none;
+  margin-left: 275px;
+  margin-bottom: 20px;
+  background-color: none;
 }
 
 .js-todoform input::placeholder {
@@ -30,17 +40,20 @@ body {
 
 .js-todolist {
   text-align: start;
-  color: orange;
-  padding: ;
+  color: white;
+  margin-left: 260px;
+  font-size: 20px;
+  font-weight: 200px;
 }
+
 .js-weatherbox {
   display: flex;
   justify-content: flex-end;
   position: absolute;
+  right: 0;
   top: 0;
 }
-
-.js-weather {
+. .js-weather {
   color: black;
 }
 
