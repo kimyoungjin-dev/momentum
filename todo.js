@@ -7,10 +7,10 @@ function deletetodo(event) {
   const btn = event.target;
   const li = btn.parentNode;
   todolist.removeChild(li);
-  const cleantodos = todos.filter(function (todo) {
+  const cleanTodos = todos.filter(function (todo) {
     return todo.id !== li.id;
   });
-  todos = cleantodos;
+  todos = cleanTodos;
   saveTodo();
 }
 
@@ -22,7 +22,6 @@ function paintTodo(text) {
   const li = document.createElement("li");
   const span = document.createElement("span");
   const delbtn = document.createElement("button");
-
   const newid = todos.length + 1;
   delbtn.innerText = "v";
   span.innerText = text;
