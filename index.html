@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="kr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,28 +8,34 @@
     <script defer src="todo.js"></script>
     <script defer src="bg.js"></script>
     <script defer src="weather.js"></script>
-
     <link rel="stylesheet" href="index.css" />
-
     <title>Document</title>
   </head>
+
   <body>
     <div class="js-clock">
       <h1 class="js-title">00:00</h1>
     </div>
-    <form class="js-form form">
-      <input type="text" placeholder="What is your name?" />
-    </form>
+
+    <div class="FormContainer">
+      <form class="js-form Form">
+        <input class="FormInput" type="text" placeholder="Write your name" />
+      </form>
+    </div>
+
     <h4 class="js-greetings greetings"></h4>
+
     <form class="js-todoform">
       <input
-        class="todo-input__design"
+        class="TodoInput"
         type="text"
-        placeholder="Write things to do!!"
+        placeholder="Write things TodoList"
       />
     </form>
+
     <ul class="js-todolist"></ul>
-    <div class="js-weatherbox">
+
+    <div class="js-weatherContainer">
       <span class="js-weather"></span>
     </div>
   </body>
